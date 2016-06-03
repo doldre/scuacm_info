@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四川大学ACM暑期集训报名表</title>
+</head>
+<body>
+<div>
+<table style="width:100%">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>学号</th>
+        <th>得分</th>
+        <th>SOJ id</th>
+        <th>Codeforces id</th>
+        <th>BestCoder id</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for usr in users %}
+            <tr>
+                <td>{{ usr.name }}</td>
+                <td>{{ usr.stu_id }}</td>
+                <td>{{ usr.score }}</td>
+                <td>{{ usr.soj_id }}</td>
+                <td>{{ usr.cf_id }}</td>
+                <td>{{ usr.bc_id }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<div>
+    <a href="../add_info">添加信息</a>
+    <a href="../delete_info">删除信息</a>
+</div>
+</body>
+</html>
