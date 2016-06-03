@@ -34,6 +34,7 @@ def get_bc_rating(username):
             if num % 3 == 0:
                 points.append(text)
     average = get_average(points)
+    average = int(average)
     return str(average)
 def get_cf_rating(username):
     r = requests.get("http://codeforces.com/contests/with/"+username)
@@ -54,13 +55,14 @@ def get_cf_rating(username):
                 points.append(text)
     #print(points)
     average = get_average(points)
+    average = int(average)
     return str(average)
 
 
 if __name__ == "__main__":
     bc_username = input("please input bc_username:")
     cf_username = input("please input cf_username:")
-    #bc_rating = get_bc_rating("liujc")
-    #cf_rating = get_cf_rating("liujc")
+    bc_rating = get_bc_rating("liujc")
+    cf_rating = get_cf_rating("liujc")
     print(bc_username + "\'s bc_rating is " + bc_rating)
     print(cf_username + "\'s cf_rating is " + cf_rating)
