@@ -26,26 +26,26 @@ body {
             </style>
     </head>
 
-<body>
- <div class="jumbotron"  >
+    <body>
+        <div class="jumbotron"  >
             <div class="container">
                 <h1>Socre details</h1>
             </div>
- </div>
- <div class="container" >
-     <well>
-         <li><h2>Codeforces</h2> Rating: {{ usr.cf_rating }},  Score: {{ usr.cf_score }}</li>
-     </well>
-     <well>
-         <li><h2>BestCoder</h2> Rating: {{ usr.bc_rating }},  Score: {{ usr.bc_score }} </li>
-    </well>
-     <well>
-         <li><h2>Score</h2> {{ usr.score }}</li>
-    </well>
-     <a href="../update_score/?stu_id={{ usr.stu_id }}" class="btn btn-danger btn-lg" role="button">
-                <span class="glyphicon glyphicon-remove"></span> Update Score </a>
- </div>
-<div class="footer" style="position:fixed;bottom:40px;">
+        </div>
+        <div class="container" >
+            <well>
+            <li><h2>Codeforces</h2> Rating: {{ usr.cf_rating }},  Score: {{ usr.cf_score }}</li>
+            </well>
+            <well>
+            <li><h2>BestCoder</h2> Rating: {{ usr.bc_rating }},  Score: {{ usr.bc_score }} </li>
+            </well>
+            <well>
+            <li><h2>Score</h2> {{ usr.score }}</li>
+            </well>
+            <a href="../update_score/?stu_id={{ usr.stu_id }}" class="btn btn-danger btn-lg" role="button">
+                <span class="glyphicon glyphicon-edit"></span> Update Score </a>
+        </div>
+        <div class="footer" style="position:fixed;bottom:40px;">
             <div class="btn">
                 <a href="../HOME" class="btn btn-danger">
                     <span class="glyphicon glyphicon-home"></span>
@@ -53,5 +53,5 @@ body {
                 </a> <!-- find_secret为找回密码未实现 -->
                 </button>
             </div>
-</body>
+    </body>
 </html>
