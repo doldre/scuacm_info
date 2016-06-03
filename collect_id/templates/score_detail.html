@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ usr.name }} 的积分详情</title>
+</head>
+<body>
+<li><h2>Codeforces</h2> Rating: {{ usr.cf_rating }},  Score: {{ usr.cf_score }}</li>
+<li><h2>BestCoder</h2> Rating: {{ usr.bc_rating }},  Score: {{ usr.bc_score }} </li>
+<li><h2>Score</h2> {{ usr.score }}</li>
+<a href="../update_score/?stu_id={{ usr.stu_id }}">Update Score</a>
+</body>
+</html>

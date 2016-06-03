@@ -5,7 +5,7 @@ from .models import Info
 class InfoForm(ModelForm):
     class Meta:
         model = Info
-        fields = '__all__'
+        fields = ['name', 'stu_id', 'soj_id', 'cf_id', 'bc_id']
         labels = {
             'name': _('姓名'),
             'stu_id': _('学号'),
