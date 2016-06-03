@@ -68,14 +68,21 @@ body {
                 <tbody>
                     {% for usr in users %}
                     <tr>
-                        <td><div class="alert alert-warning">  {{ usr.name }} </div></td>
+                        <td><div class="alert alert-warning"> <a href="score_detail/?stu_id={{ usr.stu_id}}">
+                            {{ usr.name }} </a> </div></td>
                         <td><div class="alert alert-info">  {{ usr.stu_id }} </div></td>
                         <td><div class="alert alert-success"> <a href="score_detail/?stu_id={{ usr.stu_id}}">{{ usr.score }}
 
                         </a> </div></td>
-                        <td><div class="alert alert-info">  {{ usr.soj_id }} </div></td>
-                        <td><div class="alert alert-danger">  {{ usr.cf_id }} </div></td>
-                        <td><div class="alert alert-success">  {{ usr.bc_id }} </div></td>
+                        <td><div class="alert alert-info"> <a href="http://acm.scu.edu.cn/soj/user.action?id={{ usr.soj_id }}">
+                            {{ usr.soj_id }} </a>
+                         </div></td>
+                        <td><div class="alert alert-danger"><a href="http://codeforces.com/profile/{{ usr.cf_id }}">
+                            {{ usr.cf_id }} </a>
+                        </div></td>
+                        <td><div class="alert alert-success"><a href="http://bestcoder.hdu.edu.cn/rating.php?user={{ usr.bc_id }}">
+                            {{ usr.bc_id }} </a>
+                        </div></td>
                     </tr>
                     {% endfor %}
                 </tbody>
