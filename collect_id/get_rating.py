@@ -11,6 +11,8 @@ def get_average(points):
         if num > 3:
             break
         sum_points += int(item)
+    if num == 0:
+        return 0
     if len(points) >= 3:
         average = sum_points / 3
     else:
