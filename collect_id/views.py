@@ -4,7 +4,7 @@ from .models import Info
 from .forms import InfoForm, DeleteForm
 from .get_rating import get_bc_rating, get_cf_rating
 def index(request):
-    users = list(Info.objects.all())
+    users = list(reversed(Info.objects.order_by('score')))
     return render(request, 'index.html', {'users':users})
 
 def add_info(request):
@@ -46,6 +46,7 @@ def update_all(request):
     for usr in users:
         usr.update_score()
     return redirect('/')
+
 def update_score(request):
     stu_id = request.GET.get('stu_id')
     usr = Info.objects.get(stu_id=stu_id)
