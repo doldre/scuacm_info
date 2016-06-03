@@ -34,6 +34,7 @@ body {
                 <div class="jumbotron"  >
                     <div class="container">
                         <h1>Add information</h1>
+                        {% if error_msg %} <p style="color:red"><strong>{{ error_msg }}</strong></p> {% endif %}
                     </div>
                 </div>
 
