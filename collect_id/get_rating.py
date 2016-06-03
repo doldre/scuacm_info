@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 def get_bc_rating(username):
     r = requests.get("http://bestcoder.hdu.edu.cn/rating.php?user=" + username)
-    bsObj = BeautifulSoup(r.text,"lxml")
+    bsObj = BeautifulSoup(r.text,"html.parser")
     #print(r.text)
     num = 0
     for item in bsObj.findAll("span",{"class":"bigggger"}):
@@ -14,7 +14,7 @@ def get_bc_rating(username):
     return "0"
 def get_cf_rating(username):
     r = requests.get("http://codeforces.com/profile/"+username)
-    bsObj = BeautifulSoup(r.text,"lxml")
+    bsObj = BeautifulSoup(r.text,"html.parser")
     #print(r.text)
     for item in bsObj.findAll("span",{"style":"font-weight:bold;"}):
         return item.get_text()
