@@ -7,6 +7,8 @@ def get_average(points):
     sum_points = 0
     num = 0
     for item in points:
+        if item.isdigit() == False:
+            continue
         num += 1
         if num > 3:
             break
@@ -62,16 +64,17 @@ def get_cf_rating(username):
         #        print(text)
         #        points.append(text)
     #print(points)
+    #print("fuck")
     average = get_average(points)
     average = int(average)
     return str(average)
 
 
 if __name__ == "__main__":
-    bc_username = input("please input bc_username:")
+    #bc_username = input("please input bc_username:")
     cf_username = input("please input cf_username:")
-    bc_rating = get_bc_rating("liujc")
+    #bc_rating = get_bc_rating("liujc")
     cf_rating = get_cf_rating(cf_username)
-    print(bc_username + "\'s bc_rating is " + bc_rating)
-    print(cf_username + "\'s cf_rating is " + cf_rating)
-    #print(cf_rating)
+    #print(bc_username + "\'s bc_rating is " + bc_rating)
+    #print(cf_username + "\'s cf_rating is " + cf_rating)
+    print(cf_rating)
