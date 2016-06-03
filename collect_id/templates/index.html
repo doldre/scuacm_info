@@ -1,40 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>四川大学ACM暑期集训报名表</title>
-</head>
-<body>
-<div>
-<table style="width:100%">
 
-    <thead>
-    <tr>
-        <th>姓名</th>
-        <th>学号</th>
-        <th>得分</th>
-        <th>SOJ id</th>
-        <th>Codeforces id</th>
-        <th>BestCoder id</th>
-    </tr>
-    </thead>
-    <tbody>
-        {% for usr in users %}
-            <tr>
-                <td>{{ usr.name }}</td>
-                <td>{{ usr.stu_id }}</td>
-                <td><a href="score_detail/?stu_id={{ usr.stu_id}}">{{ usr.score }}</a></td>
-                <td>{{ usr.soj_id }}</td>
-                <td>{{ usr.cf_id }}</td>
-                <td>{{ usr.bc_id }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-</div>
-<div>
-    <a href="../add_info">添加信息</a>
-    <a href="../delete_info">删除信息</a>
-</div>
-</body>
+{% load static %}
+{% load staticfiles %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SCU ACM 2016</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 移动设备使用-->
+        <!--
+            <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+            <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"> </script>
+            -->
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+            <style>
+body {
+    background: #F0FFFF;
+}
+        .jumbotron {
+            background: #87CEEB;
+        }
+            </style>
+    </head>
+
+
+    <body>
+
+        <div class="jumbotron"  >
+            <div class="container">
+                <h1>SCU ACM 2016暑假集训<small>你若天才,我便是疯子。</small></h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <table style="width:100%">
+                <thead>
+                    <tr>
+                        <th><div class="alert alert-warning">
+                                <strong>姓名</strong>
+                            </div>
+                        </th>
+                        <th><div class="alert alert-info">
+                                <strong>学号</strong>
+                            </div>
+                        </th>
+                        <th><div class="alert alert-success">
+                                <strong>得分</strong>
+                            </div>
+                        </th>
+                        <th><div class="alert alert-info">
+                                <strong>SOJ id</strong>
+                            </div>
+                        </th>
+                        <th><div class="alert alert-danger">
+                                <strong>Codeforces id</strong>
+                            </div>
+                        </th>
+                        <th><div class="alert alert-success">
+                                <strong>Bestcoder id</strong>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usr in users %}
+                    <tr>
+                        <td><div class="alert alert-warning">  {{ usr.name }} </div></td>
+                        <td><div class="alert alert-info">  {{ usr.stu_id }} </div></td>
+                        <td><div class="alert alert-success"> <a href="score_detail/?stu_id={{ usr.stu_id}}">{{ usr.score }}
+
+                        </a> </div></td>
+                        <td><div class="alert alert-info">  {{ usr.soj_id }} </div></td>
+                        <td><div class="alert alert-danger">  {{ usr.cf_id }} </div></td>
+                        <td><div class="alert alert-success">  {{ usr.bc_id }} </div></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            </br> </br>
+            <a href="../add_info" class="btn btn-success btn-lg " role="button " >
+                <span class="glyphicon glyphicon-ok"></span> 添加信息</a>
+
+            <a href="../delete_info" class="btn btn-danger btn-lg" role="button">
+                <span class="glyphicon glyphicon-remove"></span> 删除信息 </a>
+        </div>
+
+        <!-- 角标的书写 -->
+        <div class="footer" style="position:relative;bottom:-230px;clear:both;">
+            <span class="label label-primary "> &copy; 2016 SCUACM</span>
+            <span class="dot">·</span>
+            <a target="_parent" href="http://www.codeforces.com/profile/tourist" class="label label-success bg-info">Codeforces</a>
+            <span class="dot">·</span>
+            <a target="_blank" href="http://bestcoder.hdu.edu.cn/rating.php?user=jiry_2" class="label label-info bg-success">Bestcoder</a>
+            <span class="dot">·</span>
+            <a target="_top" href="http://acm.scu.edu.cn/soj/index.action" class="label label-warning bg-warning">soj</a>
+            <span class="dot">·</span>
+            <span class="label label-danger">By Angry_Newbie</span>
+        </div>
+    </body>
 </html>

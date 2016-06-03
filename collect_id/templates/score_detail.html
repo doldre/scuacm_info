@@ -1,13 +1,57 @@
 <!DOCTYPE html>
+
+{% load static %}
+{% load staticfiles %}
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ usr.name }} 的积分详情</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>SCU ACM 2016</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 移动设备使用-->
+        <!--
+            <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+            <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"> </script>
+            -->
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+            <style>
+body {
+    background: #F0FFFF;
+}
+        .jumbotron {
+            background: gba(252, 12, 23);
+        }
+            </style>
+    </head>
+
 <body>
-<li><h2>Codeforces</h2> Rating: {{ usr.cf_rating }},  Score: {{ usr.cf_score }}</li>
-<li><h2>BestCoder</h2> Rating: {{ usr.bc_rating }},  Score: {{ usr.bc_score }} </li>
-<li><h2>Score</h2> {{ usr.score }}</li>
-<a href="../update_score/?stu_id={{ usr.stu_id }}">Update Score</a>
+ <div class="jumbotron"  >
+            <div class="container">
+                <h1>Socre details</h1>
+            </div>
+ </div>
+ <div class="container" >
+     <well>
+         <li><h2>Codeforces</h2> Rating: {{ usr.cf_rating }},  Score: {{ usr.cf_score }}</li>
+     </well>
+     <well>
+         <li><h2>BestCoder</h2> Rating: {{ usr.bc_rating }},  Score: {{ usr.bc_score }} </li>
+    </well>
+     <well>
+         <li><h2>Score</h2> {{ usr.score }}</li>
+    </well>
+     <a href="../update_score/?stu_id={{ usr.stu_id }}" class="btn btn-danger btn-lg" role="button">
+                <span class="glyphicon glyphicon-remove"></span> Update Score </a>
+ </div>
+<div class="footer" style="position:fixed;bottom:40px;">
+            <div class="btn">
+                <a href="../HOME" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-home"></span>
+                    HOME
+                </a> <!-- find_secret为找回密码未实现 -->
+                </button>
+            </div>
 </body>
 </html>

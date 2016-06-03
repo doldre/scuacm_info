@@ -1,14 +1,50 @@
 <!DOCTYPE html>
+{% load static %}
+{% load staticfiles %}
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>删除信息</title>
-</head>
-<body>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-     <input type="submit" class="btn btn-default" value="提交" />
-</form>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>SCU ACM 2016</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 移动设备使用-->
+        <!--
+            <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+            <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"> </script>
+            -->
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+            <style>
+body {
+    background: #F0FFFE;
+}
+        .jumbotron {
+            background: rgba(222, 23, 30);
+        }
+            </style>
+    </head>
+
+    <body>
+        <div class="jumbotron"  >
+            <div class="container">
+                <h1>Delete information</h1>
+            </div>
+        </div>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn btn-danger" value="提交" />
+        </form>
+
+        <div class="footer" style="position:fixed;bottom:40px;">
+            <div class="btn">
+                <a href="HOME" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-home"></span>
+                    HOME
+                </a> <!-- find_secret为找回密码未实现 -->
+                </button>
+            </div>
+    </body>
 </html>
