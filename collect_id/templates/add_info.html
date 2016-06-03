@@ -5,6 +5,9 @@
     <title>添加个人信息</title>
 </head>
 <body>
+<div>
+    {% if error_msg %} <p style="color:red"><strong>{{ error_msg }}</strong></p> {% endif %}
+</div>
 <h1>添加个人信息</h1>
 <form action="" method="POST">
     {% csrf_token %}

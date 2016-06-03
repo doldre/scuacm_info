@@ -3,12 +3,21 @@ from django.shortcuts import render, redirect
 from .models import Info
 from .forms import InfoForm, DeleteForm
 from .get_rating import get_bc_rating, get_cf_rating
+import re
+
+
 def index(request):
     users = list(reversed(Info.objects.order_by('score')))
     return render(request, 'index.html', {'users':users})
 
 def add_info(request):
     if request.method == 'POST':
+        stu_id = request.POST['stu_id']
+        form = InfoForm(data=request.POST)
+        if not stu_id.isdigit() or len(stu_id) != 13:
+            return render(request, 'add_info.html',
+                          {'form':form,
+                            'error_msg':"学号不合法"},)
         try:
             ins = Info.objects.get(stu_id=request.POST['stu_id'])
             print(ins.name)
