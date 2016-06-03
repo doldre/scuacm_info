@@ -16,6 +16,7 @@ def add_info(request):
             print(e)
             ins = Info()
         f = InfoForm(request.POST, instance=ins)
+        f.update_score()
         f.save()
         return redirect('/')
     else:
