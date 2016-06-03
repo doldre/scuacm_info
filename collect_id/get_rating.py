@@ -44,17 +44,23 @@ def get_cf_rating(username):
     #print(r.text)
     points = []
     num = 0
-    for item in bsObj.find("div",{"id":"pageContent"}).findAll("td"):
+    for item in bsObj.find("div",{"id":"pageContent"}).find("tbody").findAll("td"):
         #print(item)
-        text = item.get_text().strip()
-        #print(text)
-        pattern = re.compile('^[0-9]+$')
-        match = pattern.match(text)
-        if match:
+        num += 1
+        if num % 7 == 6:
+            text = item.get_text().strip()
             #print(text)
-            num += 1
-            if num % 4 == 0:
-                points.append(text)
+            points.append(text)
+        #print(text)
+        #pattern = re.compile('^[0-9]+$')
+        #match = pattern.match(text)
+        #if match:
+        #    print(text)
+        #    num += 1
+        #    if num % 4 == 0:
+        #        print("fuck ----- ")
+        #        print(text)
+        #        points.append(text)
     #print(points)
     average = get_average(points)
     average = int(average)
@@ -65,6 +71,7 @@ if __name__ == "__main__":
     bc_username = input("please input bc_username:")
     cf_username = input("please input cf_username:")
     bc_rating = get_bc_rating("liujc")
-    cf_rating = get_cf_rating("liujc")
+    cf_rating = get_cf_rating(cf_username)
     print(bc_username + "\'s bc_rating is " + bc_rating)
     print(cf_username + "\'s cf_rating is " + cf_rating)
+    #print(cf_rating)
