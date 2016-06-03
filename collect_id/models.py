@@ -16,9 +16,9 @@ class Info(models.Model):
     def update_score(self):
         self.cf_rating = int(get_cf_rating(self.cf_id))
         self.bc_rating = int(get_bc_rating(self.bc_id))
-        t = max(0, (self.cf_rating - 1200) / 80)
+        t = int(max(0, (self.cf_rating - 1200) / 80))
         self.cf_score = t * t
-        t = max(0, (self.bc_rating - 1250) / 90)
+        t = int(max(0, (self.bc_rating - 1250) / 90))
         self.bc_score = t * t
         self.score = self.bc_score + self.cf_score
         self.save()
